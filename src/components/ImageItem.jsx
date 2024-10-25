@@ -1,6 +1,6 @@
 function ImageItem({ image }) {
   return (
-    <li className="border rounded-md">
+    <li className="list-none transition ease-in-out">
       <picture className="relative">
         <source
           media="(min-width:1024px)"
@@ -12,10 +12,14 @@ function ImageItem({ image }) {
           srcSet={image.urls.regular}
           type="image/jpg"
         />
-        <img src={image.urls.small} alt={image.description} />
-        <figcaption className="absolute bottom-0 left-0 ">
-          <div className="text-[#fff] text-[2rem]">{image.user.name}</div>
-          <div>{image.location}</div>
+        <img
+          src={image.urls.small}
+          alt={image.description}
+          className="border border-transparent rounded-[1rem]"
+        />
+        <figcaption className="absolute bottom-5 left-5 text-infoText ">
+          <div>{image.user.name}</div>
+          <div className="text-[1.3rem]">{image.user.location}</div>
         </figcaption>
       </picture>{' '}
     </li>
