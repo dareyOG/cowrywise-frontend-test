@@ -1,6 +1,9 @@
-function ImageItem({ image }) {
+function ImageItem({ image, setIsModal }) {
   return (
-    <li className="list-none transition ease-in-out">
+    <li
+      className="list-none transition ease-in-out cursor-pointer"
+      onClick={() => setIsModal(show => !show)}
+    >
       <picture className="relative">
         <source
           media="(min-width:1024px)"

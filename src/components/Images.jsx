@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { StaggeredGrid, StaggeredGridItem } from 'react-staggered-grid';
 import ImageItem from './ImageItem';
 
-function Images({ query }) {
+function Images({ query, setIsModal }) {
   const [images, setImages] = useState([]);
   useEffect(
     function () {
@@ -23,19 +23,18 @@ function Images({ query }) {
   );
 
   return (
-    <ul className="relative top-[-7rem]">
+    <ul className="relative top-[-3rem] xl:mx-[13.5rem]">
       <StaggeredGrid
-        columnWidth={450}
+        columnWidth={350}
         columns={0}
         alignment={1}
         horizontalGap={40}
-        verticalGap={20}
+        verticalGap={40}
         fitHorizontalGap={true}
-        style={{ margin: '0 15rem' }}
       >
         {images.map((image, index) => (
           <StaggeredGridItem key={image + index} index={index}>
-            <ImageItem image={image} />
+            <ImageItem image={image} setIsModal={setIsModal} />
           </StaggeredGridItem>
         ))}
       </StaggeredGrid>
